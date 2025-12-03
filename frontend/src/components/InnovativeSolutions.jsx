@@ -3,7 +3,7 @@ import "../styles/innovativeSolutions.css";
 
 import ecommerceImg from "../assets/images/innovative/ecommerce.png";
 import healthcareImg from "../assets/images/innovative/healthcare.png";
-import automationImg from "../assets/images/innovative/healthcare.png";
+import automationImg from "../assets/images/innovative/smartflows.png";
 
 function InnovativeSolutions() {
   const items = [
@@ -33,7 +33,6 @@ function InnovativeSolutions() {
       <div className="circle right-circle"></div>
 
       <div className="innovative-inner">
-
         {/* Badge */}
         <div className="innovative-badge">
           <span className="dot"></span> Featured Work
@@ -46,11 +45,12 @@ function InnovativeSolutions() {
 
         {/* Subtitle */}
         <p className="innovative-subtitle">
-          From concept to deployment, we deliver cutting-edge digital solutions that drive growth and transform businesses through innovative technology.
+          From concept to deployment, we deliver cutting-edge digital solutions
+          that drive growth and transform businesses through innovative
+          technology.
         </p>
 
         <div className="innovative-content">
-
           {/* LEFT LIST */}
           <div className="innovative-list">
             {items.map((item, index) => (
@@ -77,7 +77,6 @@ function InnovativeSolutions() {
             <button className="image-btn contact-btn">Contact Us</button>
             <button className="image-btn arrow-btn">➜</button>
           </div>
-
         </div>
       </div>
     </section>

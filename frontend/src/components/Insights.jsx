@@ -3,10 +3,12 @@ import "../styles/insights.css";
 import { Link } from "react-router-dom";
 
 // images
-import ai from "../assets/images/image 5.png";
-import iot from "../assets/images/image 5.png";
-import fullstack from "../assets/images/image 5.png";
-import web from "../assets/images/image 5.png";
+import ai from "../assets/images/image1.png";
+import ml from "../assets/images/image2.png";
+import web3 from "../assets/images/image3.png";
+import llm from "../assets/images/image4.png";
+import iot from "../assets/images/image5.png";
+import ai_ethics from "../assets/images/image6.png";
 
 function Insights() {
   const [isVisible, setIsVisible] = useState(false);
@@ -41,69 +43,75 @@ function Insights() {
       text: "Intelligent automation, chatbots, and machine learning solutions to transform your business.",
       img: ai,
       link: "/blog/ai-solutions",
-      direction: "left"
+      direction: "left",
     },
     {
-      title: "CRM Development",
+      title: "ML Production",
       text: "Connected device solutions with dashboards and smart system integration.",
-      img: iot,
-      link: "/blog/ai-solutions",
-      direction: "bottom"
+      img: ml,
+      link: "/blog/ml-production",
+      direction: "bottom",
     },
     {
-      title: "Full Stack Solutions",
+      title: "Web3 DApps",
       text: "Development from concept to deployment with comprehensive engineering.",
-      img: fullstack,
-      link: "/blog/ai-solutions",
-      direction: "right"
+      img: web3,
+      link: "/blog/web3-dapps",
+      direction: "right",
     },
     {
-      title: "Web Development",
+      title: "LLM Applications",
       text: "High-performance websites built with modern frameworks like React and Next.js.",
-      img: web,
-      link: "/blog/ai-solutions",
-      direction: "left"
+      img: llm,
+      link: "/blog/llm-applications",
+      direction: "left",
     },
     {
-      title: "CRM Development",
+      title: "AI Automation",
       text: "Real-time analytics and connected ecosystems for smart industry.",
       img: iot,
-      link: "/blog/ai-solutions",
-      direction: "bottom"
+      link: "/blog/ai-automation",
+      direction: "bottom",
     },
     {
-      title: "AI Solutions",
+      title: "AI Ethics",
       text: "Machine learning workflows and predictive intelligence for digital products.",
-      img: ai,
-      link: "/blog/ai-solutions",
-      direction: "right"
+      img: ai_ethics,
+      link: "/blog/ai-ethics",
+      direction: "right",
     },
   ];
 
   return (
     <section ref={sectionRef} className="insights-section">
       {/* Only one blue circle on the right */}
-      <div className={`insight-circle-right ${isVisible ? 'circle-visible' : ''}`}></div>
+      <div
+        className={`insight-circle-right ${isVisible ? "circle-visible" : ""}`}
+      ></div>
 
       <div className="insights-inner">
-        <div className={`insight-badge ${isVisible ? 'badge-visible' : ''}`}>
+        <div className={`insight-badge ${isVisible ? "badge-visible" : ""}`}>
           <span className="dot"></span> Blogs
         </div>
 
-        <h2 className={`insight-title ${isVisible ? 'title-visible' : ''}`}>
+        <h2 className={`insight-title ${isVisible ? "title-visible" : ""}`}>
           Insightful Tech <span>Perspectives</span>
         </h2>
 
-        <p className={`insight-subtitle ${isVisible ? 'subtitle-visible' : ''}`}>
+        <p
+          className={`insight-subtitle ${isVisible ? "subtitle-visible" : ""}`}
+        >
           Stay updated with strategic perspectives, technology deep dives, and
           innovation stories from across the digital landscape.
         </p>
 
         <div className="insight-grid">
           {blogs.map((blog, i) => (
-            <Link 
-              to={blog.link} 
-              className={`insight-card card-${blog.direction} ${isVisible ? 'card-visible' : ''}`}
+            <Link
+              to={blog.link}
+              className={`insight-card card-${blog.direction} ${
+                isVisible ? "card-visible" : ""
+              }`}
               key={i}
               style={{ transitionDelay: `${0.6 + i * 0.1}s` }}
             >
