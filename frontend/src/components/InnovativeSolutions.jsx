@@ -27,7 +27,7 @@ function InnovativeSolutions() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="innovative-section">
+    <section id="solutions" className="innovative-section">
       {/* Background circles */}
       <div className="circle left-circle"></div>
       <div className="circle right-circle"></div>

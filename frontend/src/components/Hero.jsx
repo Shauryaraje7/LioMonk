@@ -17,7 +17,8 @@ function Hero() {
   }, []);
 
   return (
-    <section
+    <section 
+    id="hero"
       className="hero-section"
       style={{
         backgroundImage: `url(${heroBG})`,
@@ -29,10 +30,7 @@ function Hero() {
       <div className="hero-overlay"></div>
 
       <div className="hero-content">
-        <div className={`hero-badge ${isVisible ? 'badge-visible' : ''}`}>
-          <span className="dot"></span>
-          Future-Ready Development
-        </div>
+    
 
         <h1 className={`hero-title ${isVisible ? 'title-visible' : ''}`}>
           We Build Ideas <br />
@@ -50,6 +48,9 @@ function Hero() {
         </div>
       </div>
     </section>
+
+ 
+
   );
 }
 

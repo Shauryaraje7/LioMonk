@@ -11,7 +11,7 @@
 
 /* Navbar fix - ensure it's visible */
 .hero-section > *:first-child {
-  position: relative;
+
   z-index: 100;
 }
 
@@ -99,7 +99,7 @@
 
 /* Title with enhanced animation */
 .hero-title {
-  color: #d1d5db;
+  color: gray;
   font-size: 58px;
   font-weight: 700;
   line-height: 1.2;

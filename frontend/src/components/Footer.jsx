@@ -23,7 +23,6 @@ function Footer() {
           <ul>
             <li>Home</li>
             <li>Services</li>
-            <li>Portfolio</li>
             <li>About Us</li>
             <li>Contact</li>
           </ul>

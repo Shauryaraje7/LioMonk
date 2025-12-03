@@ -12,8 +12,30 @@ import ai_ethics from "../assets/images/image6.png";
 
 function Insights() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showAllCards, setShowAllCards] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const sectionRef = useRef(null);
 
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 650);
+    };
+    
+    checkMobile(); // Initial check
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Reset showAllCards when switching from mobile to desktop
+  useEffect(() => {
+    if (!isMobile && showAllCards) {
+      setShowAllCards(false);
+    }
+  }, [isMobile, showAllCards]);
+
+  // Intersection Observer for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -36,6 +58,10 @@ function Insights() {
       }
     };
   }, []);
+
+  const toggleCards = () => {
+    setShowAllCards(!showAllCards);
+  };
 
   const blogs = [
     {
@@ -82,8 +108,11 @@ function Insights() {
     },
   ];
 
+  // Determine which cards to show
+  const cardsToShow = isMobile && !showAllCards ? blogs.slice(0, 3) : blogs;
+
   return (
-    <section ref={sectionRef} className="insights-section">
+    <section ref={sectionRef} className="insights-section" id="insights">
       {/* Only one blue circle on the right */}
       <div
         className={`insight-circle-right ${isVisible ? "circle-visible" : ""}`}
@@ -106,14 +135,13 @@ function Insights() {
         </p>
 
         <div className="insight-grid">
-          {blogs.map((blog, i) => (
+          {cardsToShow.map((blog, i) => (
             <Link
               to={blog.link}
               className={`insight-card card-${blog.direction} ${
                 isVisible ? "card-visible" : ""
               }`}
               key={i}
-              style={{ transitionDelay: `${0.6 + i * 0.1}s` }}
             >
               <div className="insight-image">
                 <img src={blog.img} alt={blog.title} />
@@ -127,6 +155,26 @@ function Insights() {
             </Link>
           ))}
         </div>
+
+        {/* View More/Less button for mobile only */}
+        {isMobile && (
+          <button 
+            className={`view-more-btn ${isVisible ? 'btn-visible' : ''}`} 
+            onClick={toggleCards}
+          >
+            {showAllCards ? 'View Less' : 'View More'}
+            <svg 
+              className={`view-more-icon ${showAllCards ? 'rotate-icon' : ''}`} 
+              width="16" 
+              height="16" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        )}
       </div>
     </section>
   );

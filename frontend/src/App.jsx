@@ -3,11 +3,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./styles/global.css";
 
+// Import Navbar
+import Navbar from "./components/Navbar";
+
+// Import components
 import Hero from "./components/Hero";
 import DigitalSolutions from "./components/DigitalSolutions";
 import InnovativeSolutions from "./components/InnovativeSolutions";
 import Insights from "./components/Insights";
 import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 
 // Blog pages
 import Blog1 from "./pages/Blog1";
@@ -20,6 +25,8 @@ import Blog6 from "./pages/Blog6";
 function App() {
   return (
     <Router>
+      <Navbar />
+      
       <Routes>
         {/* HOME PAGE */}
         <Route
@@ -35,7 +42,10 @@ function App() {
           }
         />
 
-        {/* BLOG PAGES */}
+        {/* CONTACT PAGE */}
+        <Route path="/contact" element={<Contact />} />
+        
+        {/* BLOG DETAIL PAGES */}
         <Route path="/blog/ai-solutions" element={<Blog1 />} />
         <Route path="/blog/ml-production" element={<Blog2 />} />
         <Route path="/blog/web3-dapps" element={<Blog3 />} />
