@@ -31,6 +31,41 @@
   color: #b5c0cc;
   line-height: 1.6;
   max-width: 330px;
+  margin-bottom: 25px;
+}
+
+/* --- Social Media Icons --- */
+.social-icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon svg {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover svg {
+  transform: scale(1.1);
 }
 
 /* --- Middle Columns --- */
@@ -120,8 +155,33 @@
     gap: 40px;
   }
 
+  .footer-about,
+  .footer-connect {
+    width: 100%;
+  }
+
   .footer-connect .footer-input-box,
   .footer-connect .footer-launch-btn {
     width: 100%;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-icons {
+    gap: 12px;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icon svg {
+    width: 20px;
+    height: 20px;
   }
 }
