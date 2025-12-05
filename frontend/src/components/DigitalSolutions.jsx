@@ -306,6 +306,13 @@ function DigitalSolutions() {
           <Swiper
             spaceBetween={24}
             slidesPerView={4}
+            loop={true}
+            modules={[Autoplay]}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
             className="services-carousel"
             breakpoints={{
               1400: { slidesPerView: 4 },
