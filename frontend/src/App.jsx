@@ -3,10 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./styles/global.css";
 
-// Import Navbar
-import Navbar from "./components/Navbar";
-
 // Import components
+import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import DigitalSolutions from "./components/DigitalSolutions";
 import InnovativeSolutions from "./components/InnovativeSolutions";
@@ -22,9 +20,13 @@ import Blog4 from "./pages/Blog4";
 import Blog5 from "./pages/Blog5";
 import Blog6 from "./pages/Blog6";
 
+// Import ScrollToTop
+import ScrollToTop from "./components/ScrollToTop";
+
 function App() {
   return (
     <Router>
+      <ScrollToTop /> {/* Add this line */}
       <Navbar />
       
       <Routes>

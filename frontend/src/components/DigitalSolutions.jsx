@@ -15,18 +15,18 @@ import i5 from "../assets/images/image_5.png";
 import i6 from "../assets/images/image_6.png";
 
 function DigitalSolutions() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSectionVisible, setIsSectionVisible] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
+  const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const sectionRef = useRef(null);
-  const modalRef = useRef(null);
+  const modalContainerRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true);
+            setIsSectionVisible(true);
           }
         });
       },
@@ -45,54 +45,54 @@ function DigitalSolutions() {
   // Close modal when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        closeModal();
+      if (modalContainerRef.current && !modalContainerRef.current.contains(event.target)) {
+        closeDetailModal();
       }
     };
 
-    if (isModalOpen) {
+    if (isDetailModalOpen) {
       document.addEventListener('mousedown', handleClickOutside);
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
+      document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.body.style.overflow = 'unset';
     };
-  }, [isModalOpen]);
+  }, [isDetailModalOpen]);
 
   // Close modal on Escape key
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
-        closeModal();
+        closeDetailModal();
       }
     };
 
-    if (isModalOpen) {
+    if (isDetailModalOpen) {
       document.addEventListener('keydown', handleEscape);
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape);
     };
-  }, [isModalOpen]);
+  }, [isDetailModalOpen]);
 
-  const cards = [
+  const services = [
     {
       id: 1,
       title: "AI Solutions",
-      text: "Intelligent automation, chatbots, and machine learning solutions that help businesses scale faster and work smarter.",
-      points: [
+      description: "Intelligent automation, chatbots, and machine learning solutions that help businesses scale faster and work smarter.",
+      highlights: [
         "AI Chatbots",
         "Machine Learning",
         "Process Automation",
         "Data Analytics",
       ],
-      img: i1,
-      direction: "left",
-      fullDescription: "Our AI Solutions harness the power of artificial intelligence to transform your business operations. We develop intelligent chatbots that provide 24/7 customer support, implement machine learning algorithms for predictive analytics, and automate complex business processes. Our AI systems learn and adapt to your business needs, providing actionable insights and improving operational efficiency by up to 60%.",
-      features: [
+      image: i1,
+      animationDirection: "left",
+      detailedDescription: "Our AI Solutions harness the power of artificial intelligence to transform your business operations. We develop intelligent chatbots that provide 24/7 customer support, implement machine learning algorithms for predictive analytics, and automate complex business processes. Our AI systems learn and adapt to your business needs, providing actionable insights and improving operational efficiency by up to 60%.",
+      capabilities: [
         "Custom AI Chatbot Development",
         "Predictive Analytics & Machine Learning Models",
         "Process Automation & Optimization",
@@ -100,7 +100,7 @@ function DigitalSolutions() {
         "Natural Language Processing (NLP)",
         "Computer Vision Solutions"
       ],
-      benefits: [
+      advantages: [
         "Reduce operational costs by 40%",
         "Improve customer satisfaction by 80%",
         "24/7 automated customer support",
@@ -110,17 +110,17 @@ function DigitalSolutions() {
     {
       id: 2,
       title: "CRM Development",
-      text: "Custom CRM systems designed to manage leads, automate workflows, and streamline your entire customer lifecycle.",
-      points: [
+      description: "Custom CRM systems designed to manage leads, automate workflows, and streamline your entire customer lifecycle.",
+      highlights: [
         "Lead Management",
         "Workflow Automation",
         "Customer Insights",
         "Sales Dashboard",
       ],
-      img: i2,
-      direction: "left",
-      fullDescription: "We build custom CRM solutions that transform how you manage customer relationships. Our CRM systems are tailored to your specific business processes, integrating seamlessly with your existing tools. From lead capture to customer retention, we create comprehensive solutions that provide a 360-degree view of your customer journey.",
-      features: [
+      image: i2,
+      animationDirection: "left",
+      detailedDescription: "We build custom CRM solutions that transform how you manage customer relationships. Our CRM systems are tailored to your specific business processes, integrating seamlessly with your existing tools. From lead capture to customer retention, we create comprehensive solutions that provide a 360-degree view of your customer journey.",
+      capabilities: [
         "Custom Lead Management Pipeline",
         "Automated Workflow & Task Management",
         "Customer Behavior Analytics",
@@ -128,7 +128,7 @@ function DigitalSolutions() {
         "Multi-channel Integration",
         "Mobile CRM Access"
       ],
-      benefits: [
+      advantages: [
         "Increase sales conversion by 35%",
         "Reduce manual data entry by 70%",
         "Improve customer retention by 45%",
@@ -138,17 +138,17 @@ function DigitalSolutions() {
     {
       id: 3,
       title: "Full Stack Solutions",
-      text: "End-to-end development from concept to deployment, covering backend, frontend, and complete project delivery.",
-      points: [
+      description: "End-to-end development from concept to deployment, covering backend, frontend, and complete project delivery.",
+      highlights: [
         "End-to-End Development",
         "Project Management",
         "Quality Assurance",
         "Deployment",
       ],
-      img: i3,
-      direction: "right",
-      fullDescription: "Our Full Stack Solutions provide complete end-to-end development services. We handle everything from initial concept and design to development, testing, deployment, and maintenance. Using modern technologies and agile methodologies, we ensure your project is delivered on time and within budget while meeting the highest quality standards.",
-      features: [
+      image: i3,
+      animationDirection: "right",
+      detailedDescription: "Our Full Stack Solutions provide complete end-to-end development services. We handle everything from initial concept and design to development, testing, deployment, and maintenance. Using modern technologies and agile methodologies, we ensure your project is delivered on time and within budget while meeting the highest quality standards.",
+      capabilities: [
         "Full-cycle Software Development",
         "Agile Project Management",
         "Comprehensive Testing & QA",
@@ -156,7 +156,7 @@ function DigitalSolutions() {
         "Scalable Architecture Design",
         "Post-launch Support & Maintenance"
       ],
-      benefits: [
+      advantages: [
         "Single point of accountability",
         "Faster time-to-market",
         "Seamless team collaboration",
@@ -166,17 +166,17 @@ function DigitalSolutions() {
     {
       id: 4,
       title: "Web Development",
-      text: "High-performance, SEO-optimized websites built using modern frameworks like React, Next.js, and Vue.js.",
-      points: [
+      description: "High-performance, SEO-optimized websites built using modern frameworks like React, Next.js, and Vue.js.",
+      highlights: [
         "Responsive Design",
         "SEO Optimization",
         "Fast Performance",
         "Modern UI/UX",
       ],
-      img: i4,
-      direction: "right",
-      fullDescription: "We create stunning, high-performance websites that not only look great but also deliver exceptional user experiences and strong SEO results. Using modern frameworks and best practices, we build websites that are fast, secure, and scalable. Whether you need a simple landing page or a complex web application, we've got you covered.",
-      features: [
+      image: i4,
+      animationDirection: "right",
+      detailedDescription: "We create stunning, high-performance websites that not only look great but also deliver exceptional user experiences and strong SEO results. Using modern frameworks and best practices, we build websites that are fast, secure, and scalable. Whether you need a simple landing page or a complex web application, we've got you covered.",
+      capabilities: [
         "Responsive & Mobile-first Design",
         "Advanced SEO Optimization",
         "Progressive Web Apps (PWA)",
@@ -184,7 +184,7 @@ function DigitalSolutions() {
         "CMS Integration (WordPress, Strapi)",
         "Performance Optimization"
       ],
-      benefits: [
+      advantages: [
         "Improve site speed by 60%",
         "Increase organic traffic by 50%",
         "Better user engagement & conversion",
@@ -194,17 +194,17 @@ function DigitalSolutions() {
     {
       id: 5,
       title: "Cloud & DevOps",
-      text: "Scalable infrastructure, CI/CD pipelines, and automated deployments to keep your systems fast, secure, and reliable.",
-      points: [
+      description: "Scalable infrastructure, CI/CD pipelines, and automated deployments to keep your systems fast, secure, and reliable.",
+      highlights: [
         "Cloud Migration",
         "CI/CD Pipelines",
         "Monitoring",
         "DevOps Automation",
       ],
-      img: i5,
-      direction: "middle",
-      fullDescription: "Our Cloud & DevOps services ensure your applications run smoothly, scale effortlessly, and remain secure. We implement modern DevOps practices and leverage cloud infrastructure to automate deployment, monitoring, and scaling processes. From cloud migration to continuous integration and delivery, we optimize your entire development lifecycle.",
-      features: [
+      image: i5,
+      animationDirection: "center",
+      detailedDescription: "Our Cloud & DevOps services ensure your applications run smoothly, scale effortlessly, and remain secure. We implement modern DevOps practices and leverage cloud infrastructure to automate deployment, monitoring, and scaling processes. From cloud migration to continuous integration and delivery, we optimize your entire development lifecycle.",
+      capabilities: [
         "Cloud Infrastructure Setup (AWS, Azure, GCP)",
         "CI/CD Pipeline Implementation",
         "Containerization with Docker & Kubernetes",
@@ -212,7 +212,7 @@ function DigitalSolutions() {
         "Performance Monitoring & Alerting",
         "Security & Compliance Management"
       ],
-      benefits: [
+      advantages: [
         "Reduce deployment time by 80%",
         "Improve system reliability by 99.9%",
         "Automatic scaling based on demand",
@@ -222,12 +222,12 @@ function DigitalSolutions() {
     {
       id: 6,
       title: "Product Engineering",
-      text: "Complete lifecycle support—from ideation and prototyping to testing and product launch—for startups and businesses.",
-      points: ["Prototyping", "Testing", "Optimization", "Launch Strategy"],
-      img: i6,
-      direction: "middle",
-      fullDescription: "Product Engineering is our holistic approach to building successful digital products. We guide you through every stage of the product lifecycle - from initial idea validation and prototyping to development, testing, and successful market launch. Our methodology combines user-centered design with agile development to create products that users love.",
-      features: [
+      description: "Complete lifecycle support—from ideation and prototyping to testing and product launch—for startups and businesses.",
+      highlights: ["Prototyping", "Testing", "Optimization", "Launch Strategy"],
+      image: i6,
+      animationDirection: "center",
+      detailedDescription: "Product Engineering is our holistic approach to building successful digital products. We guide you through every stage of the product lifecycle - from initial idea validation and prototyping to development, testing, and successful market launch. Our methodology combines user-centered design with agile development to create products that users love.",
+      capabilities: [
         "Product Discovery & Strategy",
         "MVP Development & Prototyping",
         "User Experience Design",
@@ -235,7 +235,7 @@ function DigitalSolutions() {
         "Product Analytics & Optimization",
         "Go-to-Market Strategy"
       ],
-      benefits: [
+      advantages: [
         "Validate ideas before full development",
         "Faster time-to-market with MVP approach",
         "Higher product-market fit success",
@@ -244,40 +244,44 @@ function DigitalSolutions() {
     },
   ];
 
-  const openModal = (card) => {
-    setSelectedCard(card);
-    setIsModalOpen(true);
+  const openDetailModal = (service) => {
+    setSelectedService(service);
+    setIsDetailModalOpen(true);
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const closeDetailModal = () => {
+    setIsDetailModalOpen(false);
     setTimeout(() => {
-      setSelectedCard(null);
+      setSelectedService(null);
     }, 300);
   };
 
-  const SolutionCard = ({ card }) => (
-    <div className="solution-card">
-      <div className="card-top">
-        <img src={card.img} alt={card.title} className="card-image" />
-        <button className="card-arrow" onClick={() => openModal(card)}>
-          <span>➜</span>
+  const ServiceCard = ({ service }) => (
+    <div className="service-card">
+      <div className="service-card-image-container">
+        <img src={service.image} alt={service.title} className="service-card-image" />
+        <button className="service-card-action-button" onClick={() => openDetailModal(service)}>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 12H20M20 12L16 8M20 12L16 16" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+            </svg>
+          </span>
         </button>
       </div>
-      <div className="card-body">
-        <h3 className="card-title">{card.title}</h3>
-        <p className="card-text">{card.text}</p>
-        <ul className="card-points">
-          {card.points.slice(0, 3).map((point, idx) => (
+      <div className="service-card-content">
+        <h3 className="service-card-title">{service.title}</h3>
+        <p className="service-card-description">{service.description}</p>
+        <ul className="service-card-highlights">
+          {service.highlights.slice(0, 3).map((highlight, idx) => (
             <li key={idx}>
-              <div className="check-icon"></div>
-              {point}
+              <div className="highlight-indicator"></div>
+              {highlight}
             </li>
           ))}
-          {card.points.length > 3 && (
+          {service.highlights.length > 3 && (
             <li>
-              <div className="check-icon"></div>
-              +{card.points.length - 3} more
+              <div className="highlight-indicator"></div>
+              +{service.highlights.length - 3} more
             </li>
           )}
         </ul>
@@ -287,28 +291,22 @@ function DigitalSolutions() {
 
   return (
     <>
-      <section ref={sectionRef} className="digital-section" id="services"  >
-        <div className="digital-inner">
-          <h2 className={`digital-title ${isVisible ? "title-visible" : ""}`}>
+      <section ref={sectionRef} className="services-section" id="services">
+        <div className="services-container">
+          <h2 className={`services-heading ${isSectionVisible ? "heading-visible" : ""}`}>
             Comprehensive <span>Digital Solutions</span>
           </h2>
 
-          <p
-            className={`digital-subtitle ${isVisible ? "subtitle-visible" : ""}`}
-          >
+          <p className={`services-subheading ${isSectionVisible ? "subheading-visible" : ""}`}>
             From concept to deployment, we deliver cutting-edge digital solutions
             that drive growth and transform businesses through innovative
             technology.
           </p>
 
           <Swiper
-            modules={[Autoplay]}
-            autoplay={{ delay: 3000 }}
-            loop={true}
             spaceBetween={24}
             slidesPerView={4}
-            speed={900}
-            className="solutions-swiper"
+            className="services-carousel"
             breakpoints={{
               1400: { slidesPerView: 4 },
               1100: { slidesPerView: 3 },
@@ -316,15 +314,15 @@ function DigitalSolutions() {
               0: { slidesPerView: 1 },
             }}
           >
-            {cards.map((item, index) => (
+            {services.map((item, index) => (
               <SwiperSlide key={item.id}>
                 <div
-                  className={`solution-card-wrapper ${
-                    isVisible ? "card-visible" : ""
-                  } card-${item.direction}`}
+                  className={`service-card-wrapper ${
+                    isSectionVisible ? "card-animated" : ""
+                  } animation-${item.animationDirection}`}
                   style={{ transitionDelay: `${0.6 + index * 0.15}s` }}
                 >
-                  <SolutionCard card={item} />
+                  <ServiceCard service={item} />
                 </div>
               </SwiperSlide>
             ))}
@@ -332,93 +330,93 @@ function DigitalSolutions() {
         </div>
       </section>
 
-      {/* Modal Popup */}
-      {isModalOpen && (
-        <div className={`modal-overlay ${isModalOpen ? 'modal-open' : ''}`}>
-          <div className="modal-content" ref={modalRef}>
-            <button className="modal-close" onClick={closeModal}>
+      {/* Service Detail Modal */}
+      {isDetailModalOpen && (
+        <div className={`service-modal-overlay ${isDetailModalOpen ? 'modal-active' : ''}`}>
+          <div className="service-modal-content" ref={modalContainerRef}>
+            <button className="service-modal-close-button" onClick={closeDetailModal}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
             
-            {selectedCard && (
-              <div className="modal-body">
-                <div className="modal-header">
-                  <img src={selectedCard.img} alt={selectedCard.title} className="modal-image" />
-                  <div className="modal-title-section">
-                    <h2 className="modal-title">{selectedCard.title}</h2>
-                    <p className="modal-intro">{selectedCard.fullDescription}</p>
+            {selectedService && (
+              <div className="service-modal-body">
+                <div className="service-modal-header">
+                  <img src={selectedService.image} alt={selectedService.title} className="service-modal-image" />
+                  <div className="service-modal-title-section">
+                    <h2 className="service-modal-title">{selectedService.title}</h2>
+                    <p className="service-modal-introduction">{selectedService.detailedDescription}</p>
                   </div>
                 </div>
 
-                <div className="modal-sections">
-                  <div className="modal-section">
-                    <h3 className="section-title">
+                <div className="service-modal-sections">
+                  <div className="service-modal-section">
+                    <h3 className="service-section-title">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                       Key Features
                     </h3>
-                    <ul className="features-list">
-                      {selectedCard.features.map((feature, idx) => (
+                    <ul className="service-features-list">
+                      {selectedService.capabilities.map((capability, idx) => (
                         <li key={idx}>
-                          <div className="feature-check"></div>
-                          {feature}
+                          <div className="feature-checkmark"></div>
+                          {capability}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="modal-section">
-                    <h3 className="section-title">
+                  <div className="service-modal-section">
+                    <h3 className="service-section-title">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                       Business Benefits
                     </h3>
-                    <ul className="benefits-list">
-                      {selectedCard.benefits.map((benefit, idx) => (
+                    <ul className="service-benefits-list">
+                      {selectedService.advantages.map((advantage, idx) => (
                         <li key={idx}>
-                          <div className="benefit-icon">✓</div>
-                          {benefit}
+                          <div className="benefit-symbol">✓</div>
+                          {advantage}
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="modal-section">
-                    <h3 className="section-title">
+                  <div className="service-modal-section">
+                    <h3 className="service-section-title">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                       Quick Facts
                     </h3>
-                    <div className="quick-facts">
+                    <div className="quick-facts-container">
                       <div className="fact-item">
-                        <div className="fact-number">100%</div>
-                        <div className="fact-text">Custom Solutions</div>
+                        <div className="fact-value">100%</div>
+                        <div className="fact-label">Custom Solutions</div>
                       </div>
                       <div className="fact-item">
-                        <div className="fact-number">24/7</div>
-                        <div className="fact-text">Support Available</div>
+                        <div className="fact-value">24/7</div>
+                        <div className="fact-label">Support Available</div>
                       </div>
                       <div className="fact-item">
-                        <div className="fact-number">30 Days</div>
-                        <div className="fact-text">Free Maintenance</div>
+                        <div className="fact-value">30 Days</div>
+                        <div className="fact-label">Free Maintenance</div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="modal-footer">
-                  <button className="modal-cta" onClick={() => {/* Add your action here */}}>
-                    Get Started with {selectedCard.title}
+                <div className="service-modal-footer">
+                  <button className="service-modal-action-button" onClick={() => {/* Add your action here */}}>
+                    Get Started with {selectedService.title}
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </button>
-                  <p className="modal-note">Schedule a free 30-minute consultation to discuss your project requirements.</p>
+                  <p className="service-modal-note">Schedule a free 30-minute consultation to discuss your project requirements.</p>
                 </div>
               </div>
             )}

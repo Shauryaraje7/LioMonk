@@ -109,6 +109,7 @@
 }
 
 /* Arrow button */
+/* Arrow button */
 .card-arrow {
   position: absolute;
   top: 18px;
@@ -117,7 +118,7 @@
   height: 32px;
   border-radius: 50%;
   border: none;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.85); /* Black background */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -127,14 +128,25 @@
   z-index: 2;
 }
 
-.card-arrow:hover {
-  transform: scale(1.15);
-  background: #ffffff;
+/* SVG styling */
+.card-arrow svg {
+  width: 16px;
+  height: 16px;
 }
 
-.card-arrow span {
-  font-size: 16px;
-  transform: translateX(1px);
+/* SVG path - change stroke to white */
+.card-arrow svg path {
+  stroke: #ffffff; /* White arrow */
+  transition: stroke 0.3s ease;
+}
+
+.card-arrow:hover {
+  transform: scale(1.15);
+  background: rgba(0, 0, 0, 1); /* Darker black on hover */
+}
+
+.card-arrow:hover svg path {
+  stroke: #ffffff; /* Keep arrow white on hover */
 }
 
 /* Body */
