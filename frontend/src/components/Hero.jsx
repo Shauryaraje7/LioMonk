@@ -45,9 +45,7 @@ function Hero() {
         <div className={`hero-buttons ${isVisible ? 'buttons-visible' : ''}`}>
           <a href="/contact">
           <button className="hero-btn hero-btn-light">Launch</button></a>
-          <a href="">
-          <button className="hero-btn hero-btn-dark">Free Quote</button>
-          </a>
+         
         </div>
       </div>
     </section>

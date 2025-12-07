@@ -127,15 +127,7 @@ function Footer() {
         </div>
 
         {/* Right column */}
-        <div className="footer-col footer-connect">
-          <h4>LET'S CONNECT</h4>
 
-          <div className="footer-input-box">
-            <input type="email" placeholder="Enter your email" />
-          </div>
-
-          <button className="footer-launch-btn">Launch</button>
-        </div>
       </div>
 
       {/* Divider */}
