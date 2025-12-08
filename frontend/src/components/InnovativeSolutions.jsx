@@ -18,7 +18,7 @@ function InnovativeSolutions() {
       img: healthcareImg,
     },
     {
-      title: "SmartFlows Automation Platform",
+      title: "Automation Platform",
       text: "A corporate website for an automation consultancy showcasing their RPA services and client portfolio.",
       img: automationImg,
     },
