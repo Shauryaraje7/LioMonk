@@ -24,7 +24,7 @@ function Footer() {
                 <g id="SVGRepo_iconCarrier">
                   <title></title>
                   <g id="Linkedln">
-                    <path d="M26.49,30H5.5A3.35,3.35,0,0,1,3,29a3.35,3.35,0,0,1-1-2.48V5.5A3.35,3.35,0,0,1,3,3,3.35,3.35,0,0,1,5.5,2h21A3.35,3.35,0,0,1,29,3,3.35,3.35,0,0,1,30,5.5v21A3.52,3.52,0,0,1,26.49,30ZM9.11,11.39a2.22,2.22,0,0,0,1.6-.58,1.83,1.83,0,0,0,.6-1.38A2.09,2.09,0,0,0,10.68,8a2.14,2.14,0,0,0-1.51-.55A2.3,2.3,0,0,0,7.57,8,1.87,1.87,0,0,0,7,9.43a1.88,1.88,0,0,0,.57,1.38A2.1,2.1,0,0,0,9.11,11.39ZM11,13H7.19V24.54H11Zm13.85,4.94a5.49,5.49,0,0,0-1.24-4,4.22,4.22,0,0,0-3.15-1.27,3.44,3.44,0,0,0-2.34.66A6,6,0,0,0,17,14.64V13H13.19V24.54H17V17.59a.83.83,0,0,1,.1-.43,2.73,2.73,0,0,1,.7-1,1.81,1.81,0,0,1,1.28-.44,1.59,1.59,0,0,1,1.49.75,3.68,3.68,0,0,1,.44,1.9v6.15h3.85ZM17,14.7a.05.05,0,0,1,.06-.06v.06Z"></path>
+                    <path d="M26.49,30H5.5A3.35,3.35,0,0,1,3,29a3.35,3.35,0,0,1-1-2.48V5.5A3.35,3.35,0,0,1,3,3A3.35,3.35,0,0,1,5.5,2h21A3.35,3.35,0,0,1,29,3A3.35,3.35,0,0,1,30,5.5v21A3.52,3.52,0,0,1,26.49,30ZM9.11,11.39a2.22,2.22,0,0,0,1.6-.58,1.83,1.83,0,0,0,.6-1.38A2.09,2.09,0,0,0,10.68,8a2.14,2.14,0,0,0-1.51-.55A2.3,2.3,0,0,0,7.57,8,1.87,1.87,0,0,0,7,9.43a1.88,1.88,0,0,0,.57,1.38A2.1,2.1,0,0,0,9.11,11.39ZM11,13H7.19V24.54H11Zm13.85,4.94a5.49,5.49,0,0,0-1.24-4,4.22,4.22,0,0,0-3.15-1.27,3.44,3.44,0,0,0-2.34.66A6,6,0,0,0,17,14.64V13H13.19V24.54H17V17.59a.83.83,0,0,1,.1-.43,2.73,2.73,0,0,1,.7-1,1.81,1.81,0,0,1,1.28-.44,1.59,1.59,0,0,1,1.49.75,3.68,3.68,0,0,1,.44,1.9v6.15h3.85ZM17,14.7a.05.05,0,0,1,.06-.06v.06Z"></path>
                   </g>
                 </g>
               </svg>
@@ -108,25 +108,33 @@ function Footer() {
         <div className="footer-col">
           <h4>QUICK LINKS</h4>
           <ul>
-            <li>Home</li>
-            <li>Services</li>
-            <li>About Us</li>
-            <li>Contact</li>
+            <li><a href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</a></li>
+            <li><a href="#services" style={{ color: 'inherit', textDecoration: 'none' }}>Services</a></li>
+            <li><a href="#solutions" style={{ color: 'inherit', textDecoration: 'none' }}>Solutions</a></li>
+            <li><a href="#insights" style={{ color: 'inherit', textDecoration: 'none' }}>Blogs</a></li>
+            <li><a href="/contact" style={{ color: 'inherit', textDecoration: 'none' }}>Contact</a></li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h4>SERVICES</h4>
           <ul>
-            <li>Web Development</li>
-            <li>Mobile Apps</li>
-            <li>AI Solutions</li>
-            <li>CRM Development</li>
-            <li>Full Projects</li>
+            <li><a href="#services" style={{ color: 'inherit', textDecoration: 'none' }}>Web Development</a></li>
+            <li><a href="#services" style={{ color: 'inherit', textDecoration: 'none' }}>Mobile Apps</a></li>
+            <li><a href="#services" style={{ color: 'inherit', textDecoration: 'none' }}>AI Solutions</a></li>
+            <li><a href="#services" style={{ color: 'inherit', textDecoration: 'none' }}>CRM Development</a></li>
+            <li><a href="#services" style={{ color: 'inherit', textDecoration: 'none' }}>Full Projects</a></li>
           </ul>
         </div>
 
-        {/* Right column */}
+        {/* Right column - Optional: Add if needed, e.g., for additional info */}
+        {/* <div className="footer-col">
+          <h4>LEGAL</h4>
+          <ul>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+          </ul>
+        </div> */}
 
       </div>
 

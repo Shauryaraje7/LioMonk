@@ -82,7 +82,7 @@ function Contact() {
 
     } catch (error) {
       console.error('Submission error:', error);
-      alert('Submission failed. Please email us directly at liomonk247@gmail.com with your details.');
+      alert('Submission failed. Please email us directly at contact@liomonk.com with your details.');
     } finally {
       setIsSubmitting(false);
     }
@@ -102,7 +102,7 @@ ${formData.message}
 Sent from Liomonk Contact Form
     `);
     
-    window.location.href = `mailto:liomonk247@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@liomonk.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -199,7 +199,7 @@ Sent from Liomonk Contact Form
                 </button>
                 
                 {/* <div className="form-backup">
-                  <p><small>If form doesn't work, email us directly: <strong>liomonk247@gmail.com</strong></small></p>
+                  <p><small>If form doesn't work, email us directly: <strong>contact@liomonk.com</strong></small></p>
                   <button 
                     type="button"
                     className="direct-email-btn"
@@ -232,8 +232,9 @@ Sent from Liomonk Contact Form
                   </svg>
                 </div>
                 <h3>Call Us</h3>
-                <p>+91 9822474542</p>
                 <p>+91 8237536226</p>
+                <p>+91 9822474542</p>
+                
               </div>
 
               <div className="info-card">
@@ -244,7 +245,7 @@ Sent from Liomonk Contact Form
                   </svg>
                 </div>
                 <h3>Email Us</h3>
-                <p className="primary-email">liomonk247@gmail.com</p>
+                <p className="primary-email">contact@liomonk.com</p>
               </div>
 
               <div className="info-card">

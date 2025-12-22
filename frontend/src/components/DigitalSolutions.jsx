@@ -3,8 +3,9 @@ import "../styles/digitalSolutions.css";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/pagination";
 
 // Images
 import i1 from "../assets/images/image_1.png";
@@ -257,10 +258,16 @@ function DigitalSolutions() {
   };
 
   const ServiceCard = ({ service }) => (
-    <div className="service-card">
+    <div className="service-card" onClick={() => openDetailModal(service)}>
       <div className="service-card-image-container">
         <img src={service.image} alt={service.title} className="service-card-image" />
-        <button className="service-card-action-button" onClick={() => openDetailModal(service)}>
+        <button 
+          className="service-card-action-button" 
+          onClick={(e) => {
+            e.stopPropagation();
+            openDetailModal(service);
+          }}
+        >
           <span>
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 12H20M20 12L16 8M20 12L16 16" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -307,11 +314,15 @@ function DigitalSolutions() {
             spaceBetween={24}
             slidesPerView={4}
             loop={true}
-            modules={[Autoplay]}
+            modules={[Autoplay, Pagination]}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
             }}
             className="services-carousel"
             breakpoints={{
